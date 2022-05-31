@@ -6,6 +6,7 @@ namespace Test.ApriCode.VideoGames.Models
 {
     public class GamesList
     {
+        [Key]
         public int GameId { get; set; }
 
 
