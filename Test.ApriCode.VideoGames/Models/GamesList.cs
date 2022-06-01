@@ -11,16 +11,16 @@ namespace Test.ApriCode.VideoGames.Models
         public int GameId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
 
-        public string DeveloperStudio { get; set; }
+        public string? DeveloperStudio { get; set; }
 
         
         public int DeveloperStudioId { get; set; }
 
 
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
 
 
         public int GenreId { get; set; }

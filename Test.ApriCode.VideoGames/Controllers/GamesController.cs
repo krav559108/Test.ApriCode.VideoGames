@@ -48,10 +48,15 @@ public class GamesController : Controller
     
     public async Task<ActionResult<List<GamesList>>> GetGenre(int GenreId)
     {
-        var dbgame = await context.GamesLists.FindAsync(GenreId);
-        if (dbgame == null)
-            return BadRequest("Genre not found");
-        return Ok(dbgame);
+        //var dbgenres = await context.GamesLists.FindAsync(GenreId);
+        //if (dbgenres == null)
+        //    return BadRequest("Game not found");
+
+        //return Ok(dbgenres);
+        var genre_Ids = context.GamesLists.Select(s => s.GenreId == GenreId).ToList();
+        var genres = await context.GamesLists.Where(t => genre_Ids.Contains(true)).ToListAsync();
+
+        return Ok(genres);
     }
 
     // POST api/values
@@ -79,6 +84,7 @@ public class GamesController : Controller
         dbgame.DeveloperStudio = updateRequest.DeveloperStudio;
         dbgame.DeveloperStudioId = updateRequest.DeveloperStudioId;
         dbgame.Genre = updateRequest.Genre;
+        dbgame.GenreId = updateRequest.GenreId;
 
        
         await context.SaveChangesAsync();
