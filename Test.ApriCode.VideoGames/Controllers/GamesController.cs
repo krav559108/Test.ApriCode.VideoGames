@@ -42,6 +42,18 @@ public class GamesController : Controller
         return Ok(dbgame);
     }
 
+    // GET api/values/
+
+    [HttpGet("get/{GenreId}")]
+    
+    public async Task<ActionResult<List<GamesList>>> GetGenre(int GenreId)
+    {
+        var dbgame = await context.GamesLists.FindAsync(GenreId);
+        if (dbgame == null)
+            return BadRequest("Genre not found");
+        return Ok(dbgame);
+    }
+
     // POST api/values
     // LEAVE GameID equal 0 when adding new game to database
 

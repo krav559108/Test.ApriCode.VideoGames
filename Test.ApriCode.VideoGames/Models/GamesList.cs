@@ -21,6 +21,9 @@ namespace Test.ApriCode.VideoGames.Models
 
 
         public string Genre { get; set; }
+
+
+        public int GenreId { get; set; }
     }
 }
 

@@ -17,7 +17,8 @@ namespace Test.ApriCode.VideoGames.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeveloperStudio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeveloperStudioId = table.Column<int>(type: "int", nullable: false),
-                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GenreId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
