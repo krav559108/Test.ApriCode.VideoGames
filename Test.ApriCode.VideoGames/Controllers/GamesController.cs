@@ -48,16 +48,14 @@ public class GamesController : Controller
     
     public async Task<ActionResult<List<GamesList>>> GetGenre(int GenreId)
     {
-        //var dbgenres = await context.GamesLists.FindAsync(GenreId);
-        //if (dbgenres == null)
-        //    return BadRequest("Game not found");
+       
+        var dbgenres = await context.GamesLists.ToListAsync();
 
-        //return Ok(dbgenres);
-        var genre_Ids = context.GamesLists.Select(s => s.GenreId == GenreId).ToList();
+        var selectedGenres = from g in dbgenres
+                             where g.GenreId == GenreId
+                             select g;
+        return Ok(selectedGenres);
 
-        var genres = await context.GamesLists.Where(t => genre_Ids.Contains(true)).ToListAsync();
-
-        return Ok(genres);
     }
 
     // POST api/values
