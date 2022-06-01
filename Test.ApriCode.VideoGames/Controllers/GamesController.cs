@@ -54,6 +54,7 @@ public class GamesController : Controller
 
         //return Ok(dbgenres);
         var genre_Ids = context.GamesLists.Select(s => s.GenreId == GenreId).ToList();
+
         var genres = await context.GamesLists.Where(t => genre_Ids.Contains(true)).ToListAsync();
 
         return Ok(genres);
