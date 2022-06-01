@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,7 +9,7 @@ namespace Test.ApriCode.VideoGames.Models
     {
         [Key]
         public int GameId { get; set; }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
 
         public string Title { get; set; }
 
